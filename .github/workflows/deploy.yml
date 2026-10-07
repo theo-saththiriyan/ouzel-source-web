@@ -1,0 +1,54 @@
+name: build and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install wasm-opt
+        run: npm install -g wasm-opt
+
+      - name: Build obfuscated page
+        run: node scripts/build.mjs . dist/index.html
+
+      - name: Checkout target repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.MAIN_REPO }}
+          token: ${{ secrets.DEPLOY_PAT }}
+          path: main-repo
+
+      - name: Publish
+        working-directory: main-repo
+        run: |
+          cp ../dist/index.html index.html
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "no changes, nothing to push"
+            exit 0
+          fi
+          git add index.html
+          git commit -m "deploy: rebuild from ${{ github.repository }}@${{ github.sha }}"
+          git push
