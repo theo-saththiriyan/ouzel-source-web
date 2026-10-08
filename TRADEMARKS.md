@@ -1,9 +1,13 @@
 # Trademarks
 
-The Ouzel name and bird logo may be freely used, copied, modified, and redistributed, including for commercial projects and forks.
+The "Ouzel" name and Ouzel bird logo are associated with the Ouzel project, created by Theo Saththiriyan.
 
-No attribution, payment, or prior permission is required from Theo Saththiriyan.
+Anyone may freely use, copy, modify, and redistribute the Ouzel name and logo, including for forks, derivative works, and commercial projects.
 
-This permission applies to any trademark rights held by Theo Saththiriyan in the Ouzel name and bird logo, to the extent permitted by applicable law.
+No attribution, payment, or prior permission is required.
 
-Contact: saththiriyantheo@gmail.com
+However, unofficial projects must not falsely claim to be official Ouzel releases or endorsed by Theo Saththiriyan.
+
+These permissions apply to trademark rights held by Theo Saththiriyan, to the extent permitted by applicable law.
+
+For inquiries, contact saththiriyantheo@gmail.com.
