@@ -42,6 +42,7 @@ macro_rules! strings {
     ($($id:ident = $s:expr),* $(,)?) => {
         #[derive(Clone, Copy)]
         #[repr(u32)]
+        #[allow(dead_code)]
         enum Id { $($id),* }
         const STRS: &[&[u8]] = &[$($s.as_bytes()),*];
     };
@@ -107,6 +108,7 @@ strings! {
     Grey = "#8b93a5",
     Headline = "Ouzel Web is coming soon",
     Sub = "We're almost ready. Check back soon.",
+    Footer = "© 2026 Theo Saththiriyan",
 }
 const PATH: &[u8] = &[
     4, 1, 6,
@@ -246,6 +248,8 @@ const SUB_SIZE: f64 = 16.0;
 const BIRD_DY: f64 = -70.0;
 const SUB_DY: f64 = 38.0;
 const BLOCK_DY: f64 = 26.0;
+const FOOT_SIZE: f64 = 13.0;
+const FOOT_DY: f64 = 28.0;
 
 fn ease(x: f64) -> f64 {
     let x = x.clamp(0.0, 1.0);
@@ -346,6 +350,8 @@ fn frame(now: f64) -> bool {
 
         sets(CTX, Id::FillStyle as u32, Id::Grey as u32);
         draw_text(Id::Sub, cx, cy + SUB_DY * d, SUB_SIZE * d, false);
+
+        draw_text(Id::Footer, cx, s.h - FOOT_DY * d, FOOT_SIZE * d, false);
     }
     t < FADE
 }
