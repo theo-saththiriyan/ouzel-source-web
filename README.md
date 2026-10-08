@@ -1,9 +1,7 @@
 ## License
 
-Copyright © 2026 Theo Saththiriyan.
+Ouzel's original code and documentation are released under [CC0 1.0 Universal](LICENSE). Anyone may use, copy, modify, distribute, and commercialize the covered work without attribution or a requirement to include this license notice.
 
-Ouzel is licensed under the [Apache License, Version 2.0](LICENSE). See `LICENSE` for the complete terms.
+The Ouzel name and bird logo are addressed separately in [TRADEMARKS.md](TRADEMARKS.md). Third-party dependencies may have their own license requirements.
 
-The Ouzel name and bird logo are subject to separate [trademark guidelines](TRADEMARKS.md).
-
-For licensing or trademark inquiries, contact saththiriyantheo@gmail.com.
+Contact: saththiriyantheo@gmail.com
